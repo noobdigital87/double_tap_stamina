@@ -47,13 +47,10 @@ local settings = {
     	double_tap = get_settings_boolean(your_mod_name .. ".double_tap", true),
     	particles = get_settings_boolean(your_mod_name .. ".particles", true),
     	tap_interval = get_settings_number(your_mod_name .. ".tap_interval", 0.5),
-        liquid = get_settings_boolean(your_mod_name .. ".liquid", false),
-        snow = get_settings_boolean(your_mod_name .. ".snow", false),
-        starve = get_settings_boolean(your_mod_name .. ".starve", false),
+    	drain_rate = get_settings_number(your_mod_name .. ".drain_rate", 1),
         detection_step = get_settings_number(your_mod_name .. ".detection_step", 0.1),
         sprint_step = get_settings_number(your_mod_name .. ".sprint_step", 0.5),
-        drain_step = get_settings_number(your_mod_name .. ".drain_step", 0.5),
-        cancel_step = get_settings_number(your_mod_name .. ".cancel_step", 0.3),
+        drain_step = get_settings_number(your_mod_name .. ".drain_step", 0.1),
         speed = get_settings_number(your_mod_name .. ".speed", 0.8),
         jump = get_settings_number(your_mod_name .. ".jump", 0.1),
 }
@@ -75,15 +72,17 @@ dg_sprint_core.RegisterStep(your_mod_name, "SPRINT", settings.sprint_step, funct
 	end
 end)
 
-if settings.enable_sprint then
+
     dg_sprint_core.RegisterStep(your_mod_name, "DRAIN", settings.drain_step, function(player, state, dtime)
     	local is_sprinting = state.is_sprinting
+    	local control = player:get_player_control()
         if is_sprinting then
-    	    if dg_sprint_core.ExtraDrainCheck(player) then
+    	    if dg_sprint_core.ExtraDrainCheck(player) or control.jump then
                 local player_name = player:get_player_name()
-                --hunger_ng.alter_hunger(player_name, -( settings.drain_rate * dtime), 'Sprinting')
+                local saturation = stamina.get_saturation(player)
+                stamina.update_saturation(player, saturation - (settings.drain_rate * dtime))
     	    end
         end
     end)
-end
+
 
