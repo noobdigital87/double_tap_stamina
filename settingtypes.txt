@@ -1,0 +1,13 @@
+dg_sprint_stamina.aux1            (Enable AUX1 sprinting)         bool true
+dg_sprint_stamina.double_tap      (Enable double tap sprinting)   bool true
+dg_sprint_stamina.tap_interval    (Tap interval)                  float 0.5 0.1 2.0
+dg_sprint_stamina.particles       (Enable sprinting particles)    bool true
+dg_sprint_stamina.speed           (Jump boost)                    float 0.8 
+dg_sprint_stamina.jump            (Speed boost)                   float 0.1
+
+[Advanced]
+
+dg_sprint_stamina.detection_step (Detection step interval) float 0.1 0.1 1.0
+dg_sprint_stamina.sprint_step (Sprint step interval) float 0.5 0.1 1.0
+dg_sprint_stamina.drain_step (Drain step interval) float 0.2 0.1 1.0
+dg_sprint_stamina.cancel_step (Sprint cancellation step interval) float 0.3 0.1 1.0
