@@ -43,7 +43,7 @@ local function get_settings_number(setting_name, default)
 end
 
 local settings = {
-    	aux1 = get_settings_boolean(your_mod_name .. ".aux1", true),
+    	aux1 = false,
     	double_tap = get_settings_boolean(your_mod_name .. ".double_tap", true),
     	particles = get_settings_boolean(your_mod_name .. ".particles", true),
     	tap_interval = get_settings_number(your_mod_name .. ".tap_interval", 0.5),
