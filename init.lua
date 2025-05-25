@@ -81,7 +81,7 @@ if settings.enable_sprint then
         if is_sprinting then
     	    if dg_sprint_core.ExtraDrainCheck(player) then
                 local player_name = player:get_player_name()
-                hunger_ng.alter_hunger(player_name, -( settings.drain_rate * dtime), 'Sprinting')
+                --hunger_ng.alter_hunger(player_name, -( settings.drain_rate * dtime), 'Sprinting')
     	    end
         end
     end)
