@@ -43,7 +43,6 @@ local function get_settings_number(setting_name, default)
 end
 
 local settings = {
-        enable_sprint = get_settings_boolean("hunger_ng_use_hunger_bar", true),
     	aux1 = get_settings_boolean(your_mod_name .. ".aux1", true),
     	double_tap = get_settings_boolean(your_mod_name .. ".double_tap", true),
     	particles = get_settings_boolean(your_mod_name .. ".particles", true),
@@ -52,7 +51,6 @@ local settings = {
         snow = get_settings_boolean(your_mod_name .. ".snow", false),
         starve = get_settings_boolean(your_mod_name .. ".starve", false),
         drain_rate = get_settings_number(your_mod_name .. ".drain_rate", 5),
-        starve_below = get_settings_number("hunger_ng_starve_below", 1),
         detection_step = get_settings_number(your_mod_name .. ".detection_step", 0.1),
         sprint_step = get_settings_number(your_mod_name .. ".sprint_step", 0.5),
         drain_step = get_settings_number(your_mod_name .. ".drain_step", 0.2),
