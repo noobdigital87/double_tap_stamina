@@ -24,10 +24,10 @@ local mod_settings = {
 }
 
 if mod_settings.author == "TenPlus1" then
-    stamina.enable_sprint = false
+    stamina.enable_sprint = true
     stamina.enable_sprint_particles = false
 elseif mod_settings.author == "sofar" then
-   stamina.settings.sprint = false
+   stamina.settings.sprint = true
    stamina.settings.sprint_particles = false
    stamina.settings.sprint_with_fast = false
 end
